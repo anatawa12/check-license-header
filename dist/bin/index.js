@@ -14063,7 +14063,7 @@ function check(path, configPath, strictMode, gitignore) {
         }
         if (strictMode) {
             console.error(`${errors.length} error(s) and ${missedFiles.length} warning(s) found. Warnings are treated as errors.`);
-            process.exit(1);
+            process.exit(errors.length === 0 && missedFiles.length === 0 ? 0 : 1);
         }
         else if (errors.length !== 0) {
             console.error(`${errors.length} error(s) found`);
